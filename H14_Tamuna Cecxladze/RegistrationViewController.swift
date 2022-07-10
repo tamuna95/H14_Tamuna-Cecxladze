@@ -30,18 +30,19 @@ class RegistrationViewController: UIViewController {
     
 
     @IBAction func signUpButtonAction(_ sender:UIButton) {
-        
+
         if usernameTextField.text?.isEmpty == true || passwordTextField.text?.isEmpty == true || emailTextField.text?.isEmpty == true ||  confirmPasswordField.text?.isEmpty == true{
             let alert = UIAlertController(title: "ყველა ველი სავალდებულოა",message: "შეავსეთ ყველა ველი",preferredStyle: .alert)
             let action = UIAlertAction(title:"დახურვა",style: .default,handler: nil)
             alert.addAction(action)
             present(alert,animated: true,completion: nil)
         }
-        passwordValidation()
         delegate?.passData(username: usernameTextField.text!, password: passwordTextField.text!,email: emailTextField.text!)
+        passwordValidation()
+
         dismiss(animated: true,completion: nil)
         self.navigationController?.popViewController(animated: true)
-        
+
         }
     
     func passwordValidation(){
